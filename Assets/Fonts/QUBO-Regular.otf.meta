@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1146f87e4c4ea8e4ca30fca3d5d4c1ef
+timeCreated: 1494776414
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: QUBO
+  fontNames:
+  - QUBO
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
