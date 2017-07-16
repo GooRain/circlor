@@ -37,8 +37,8 @@ public class MainMenuUI : MonoBehaviour
 	private Slider sensitivitySlider;
 	[SerializeField]
 	private Text sensitivitySliderValueText;
-	[SerializeField]
-	private Toggle toggleColorBlind;
+	//[SerializeField]
+	//private Toggle toggleColorBlind;
 
 	private float defaultSensitivity = 0.15f;
 	private int countOfLevels;
@@ -96,7 +96,7 @@ public class MainMenuUI : MonoBehaviour
 			newRectTransform.anchoredPosition = Vector2.zero;
 			newRectTransform.sizeDelta = Vector2.zero;
 			newRectTransform.localScale = Vector3.one;
-			newRectTransform.position = new Vector3(newRectTransform.position.x + (i * Screen.width), newRectTransform.position.y);
+			newRectTransform.anchoredPosition = new Vector3(newRectTransform.anchoredPosition.x + (i * 1080), newRectTransform.anchoredPosition.y);
 
 			//Button newButton = newLevelTransform.GetComponentInChildren<Button>();
 			//newButton.GetComponentInChildren<Text>().text = (i + 1).ToString();
@@ -214,14 +214,14 @@ public class MainMenuUI : MonoBehaviour
 
 	private void LoadColorBlindness()
 	{
-		string key = "ColorBlindness";
-		if(PlayerPrefs.HasKey(key))
-			toggleColorBlind.isOn = PlayerPrefsX.GetBool(key);
-		else
-		{
-			PlayerPrefsX.SetBool(key, false);
-			toggleColorBlind.isOn = PlayerPrefsX.GetBool(key);
-		}
+		//string key = "ColorBlindness";
+		//if(PlayerPrefs.HasKey(key))
+		//	toggleColorBlind.isOn = PlayerPrefsX.GetBool(key);
+		//else
+		//{
+		//	PlayerPrefsX.SetBool(key, false);
+		//	toggleColorBlind.isOn = PlayerPrefsX.GetBool(key);
+		//}
 	}
 
 	public void SaveSettings()
@@ -239,7 +239,7 @@ public class MainMenuUI : MonoBehaviour
 	private void SaveColorBlindness()
 	{
 		string key = "ColorBlindness";
-		PlayerPrefsX.SetBool(key, toggleColorBlind.isOn);
+		//PlayerPrefsX.SetBool(key, toggleColorBlind.isOn);
 	}
 
 	public void OnSliderValueChange()

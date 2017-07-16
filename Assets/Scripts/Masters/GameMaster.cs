@@ -145,15 +145,18 @@ public class GameMaster : MonoBehaviour
 			SceneManager.LoadScene("Menu");
 		}
 
-		if(Input.GetKeyDown(KeyCode.P))
+#if UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.P))
 		{
 			gameUI.gameObject.SetActive(false);
+            ResumeGame();
 			ball.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 			ball.transform.position = Vector3.zero;
 			Application.CaptureScreenshot("Assets/Sprites/UI/Previews/" + "Preview" + LevelMaster.ins.CurrentLevelIndex + ".png");
 		}
+#endif
 
-		if(currentGameState == GameStates.STARTING)
+        if (currentGameState == GameStates.STARTING)
 		{
 			timer -= Time.deltaTime;
 			gameUI.ChangePauseText(timer);
