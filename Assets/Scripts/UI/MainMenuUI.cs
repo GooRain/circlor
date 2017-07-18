@@ -7,7 +7,7 @@ public class MainMenuUI : MonoBehaviour
 
 	public static MainMenuUI ins;
 
-	enum MENU { MainMenu, Settings, LevelSelection };
+	enum MENU { MainMenu, Settings, LevelSelection, Credits };
 	MENU currentMenu;
 
 	public bool isEditMode = false;
@@ -19,6 +19,8 @@ public class MainMenuUI : MonoBehaviour
 	private GameObject settingMenu;
 	[SerializeField]
 	private GameObject levelSelection;
+	[SerializeField]
+	private GameObject credits;
 
 	[Header("Level Selection")]
 	[SerializeField]
@@ -153,6 +155,12 @@ public class MainMenuUI : MonoBehaviour
 		SwitchToMainMenu();
 	}
 
+	public void ButtonCredits()
+	{
+		PlayHitSound();
+		SwitchToCredits();
+	}
+
 	public void ButtonSettings()
 	{
 		PlayHitSound();
@@ -238,7 +246,7 @@ public class MainMenuUI : MonoBehaviour
 
 	private void SaveColorBlindness()
 	{
-		string key = "ColorBlindness";
+		//string key = "ColorBlindness";
 		//PlayerPrefsX.SetBool(key, toggleColorBlind.isOn);
 	}
 
@@ -253,6 +261,7 @@ public class MainMenuUI : MonoBehaviour
 		mainMenu.SetActive(true);
 		settingMenu.SetActive(false);
 		levelSelection.SetActive(false);
+		credits.SetActive(false);
 	}
 
 	private void SwitchToSettings()
@@ -261,6 +270,7 @@ public class MainMenuUI : MonoBehaviour
 		mainMenu.SetActive(false);
 		settingMenu.SetActive(true);
 		levelSelection.SetActive(false);
+		credits.SetActive(false);
 	}
 
 	private void SwitchToLevelSelectionMenu()
@@ -269,6 +279,16 @@ public class MainMenuUI : MonoBehaviour
 		mainMenu.SetActive(false);
 		settingMenu.SetActive(false);
 		levelSelection.SetActive(true);
+		credits.SetActive(false);
+	}
+
+	private void SwitchToCredits()
+	{
+		currentMenu = MENU.Credits;
+		mainMenu.SetActive(false);
+		settingMenu.SetActive(false);
+		levelSelection.SetActive(false);
+		credits.SetActive(true);
 	}
 
 	private void PlayHitSound()

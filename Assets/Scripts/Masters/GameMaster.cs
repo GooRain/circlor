@@ -89,6 +89,7 @@ public class GameMaster : MonoBehaviour
 		InitColors();
 
 		AudioMaster.ins.StopSound("MainMenuTheme");
+		AudioMaster.ins.PlaySound("InGame");
 		score = 0;
 		currentHealth = maxHealth;
 
@@ -142,6 +143,7 @@ public class GameMaster : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Cancel"))
 		{
+			AudioMaster.ins.StopSound("InGame");
 			SceneManager.LoadScene("Menu");
 		}
 
@@ -239,6 +241,7 @@ public class GameMaster : MonoBehaviour
 		Time.timeScale = 1;
 		ball.gameObject.SetActive(true);
 		gameUI.InitGame();
+		//AudioMaster.ins.PlaySound("GameStart");
 		currentGameState = GameStates.INGAME;
 	}
 
